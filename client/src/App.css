@@ -1,0 +1,17 @@
+.carrito-img,
+.plus-img,
+.left-img
+{
+  width: 25px;
+  height: 25px;
+}
+
+.green
+{
+  color: #28a745;
+}
+
+.green:hover
+{
+  color: #217735e8;
+}

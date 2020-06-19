@@ -11,20 +11,15 @@ productRouter.use(bodyParser.json());
 
 productRouter.route('/')
 .get(authenticate.verifyUser, (req, res, next) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json('hola');
+    User.findById(req.user._id)
+    .populate('products')
+    .then((user) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(user.products);
+    }, (err) => next(err))
+    .catch((err) => next(err));
 })
-// .get(authenticate.verifyUser, (req, res, next) => {
-//     User.findById(req.user._id)
-//     .populate('products')
-//     .then((user) => {
-//         res.statusCode = 200;
-//         res.setHeader('Content-Type', 'application/json');
-//         res.json(user.products);
-//     }, (err) => next(err))
-//     .catch((err) => next(err));
-// })
 .post(authenticate.verifyUser, (req, res, next) => {
     req.body.user = req.user._id;
     Products.create(req.body)

@@ -2,8 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import {HeaderComponent} from './HeaderComponent';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
-    Button, Modal, ModalHeader, ModalBody,
+import { Nav, NavItem, Button, Modal, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
 
 export class ProductHeaderComponent extends React.Component {

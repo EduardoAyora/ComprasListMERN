@@ -142,6 +142,7 @@ export const fetchProducts = () => (dispatch) => {
 
     const bearer = 'Bearer ' + localStorage.getItem('token');
 
+    // return fetch(baseUrl + 'products', {
     return fetch('/products', {
         method: 'GET',
         headers: {
@@ -209,7 +210,8 @@ export const loginUser = (creds) => (dispatch) => {
     // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestLogin(creds))
 
-    return fetch(baseUrl + 'users/login', {
+    // return fetch(baseUrl + 'users/login', {
+    return fetch('/users/login', {
         method: 'POST',
         headers: {
             'Content-Type':'application/json'

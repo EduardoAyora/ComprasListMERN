@@ -142,7 +142,7 @@ export const fetchProducts = () => (dispatch) => {
 
     const bearer = 'Bearer ' + localStorage.getItem('token');
 
-    return fetch(baseUrl + 'products', {
+    return fetch('/products', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

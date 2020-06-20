@@ -12,9 +12,9 @@ export class ProductAddAllComponent extends React.Component {
   handleClick() {
     const products = this.props.products;
     products.forEach((product) => {
-      if (product.inCart === "0"){
+      if (product.inCart === false){
         this.props.postUpdateProduct(
-          product.id, product.name, product.aisle, product.description, true, false
+          product._id, product.name, product.aisle, product.description, true, false
         );
       }
     });

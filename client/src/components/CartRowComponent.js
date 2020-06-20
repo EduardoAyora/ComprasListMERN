@@ -11,7 +11,7 @@ export class CartRowComponent extends React.Component {
   handleChange() {
     const product = this.props.product;
     this.props.postUpdateProduct(
-      product.id, product.name, product.aisle, product.description, product.inCart, product.marked === "1" ? false : true
+      product._id, product.name, product.aisle, product.description, product.inCart, product.marked === true ? false : true
     );
   }
 
@@ -22,7 +22,7 @@ export class CartRowComponent extends React.Component {
         <td>
           <form>
             <div className="form-check">
-              <Input type="checkbox" defaultChecked={product.marked === "1" ? true : false}
+              <Input type="checkbox" defaultChecked={product.marked}
                 onChange={this.handleChange} />&nbsp;
               <label className="form-check-label">{product.name}</label>
             </div>

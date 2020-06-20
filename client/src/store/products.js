@@ -22,10 +22,10 @@ export const Products = (state = { isLoading: true,
 
         case ActionTypes.DELETE_PRODUCT:
             var deleted = action.payload;
-            return { ...state, isLoading: false, products: state.products.filter(product => product.id !== deleted.id)};
+            return { ...state, isLoading: false, products: state.products.filter(product => product._id !== deleted._id)};
 
         case ActionTypes.UPDATE_PRODUCT:
-            const index = state.products.findIndex(product => product.id === action.payload.id);
+            const index = state.products.findIndex(product => product._id === action.payload._id);
             let newState = [...state.products];
             newState[index] = action.payload;
             return {...state, isLoading: false, products: newState};

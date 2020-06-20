@@ -20,7 +20,7 @@ class ProductTableComponent extends React.Component {
     });
     orderedProducts.forEach((product) => {
       const productNorm = product.name.toLowerCase();
-      if (productNorm.indexOf(searchText) === -1 || product.inCart === "1") {
+      if (productNorm.indexOf(searchText) === -1 || product.inCart === true) {
         return;
       }
       products.push(<ProductRowComponent product={product} key={product.id}

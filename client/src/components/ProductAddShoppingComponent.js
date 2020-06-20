@@ -11,7 +11,7 @@ export class ProductAddShoppingComponent extends React.Component {
   handleClick() {
     const product = this.props.product;
     this.props.postUpdateProduct(
-      product.id, product.name, product.aisle, product.description, true, product.marked
+      product._id, product.name, product.aisle, product.description, true, product.marked
     );
     this.props.addClick();
   }

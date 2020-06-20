@@ -47,6 +47,9 @@ productRouter.route('/:productId')
         if(req.user._id.toString() === product.user._id.toString()) {
           product.name = req.body.name;
           product.description = req.body.description;
+          product.aisle = req.body.aisle;
+          product.inCart = req.body.inCart;
+          product.marked = req.body.marked;
           product.save()
           .then((product) => {
             res.statusCode = 200;
@@ -69,6 +72,7 @@ productRouter.route('/:productId')
           .then((resp) => {
               res.statusCode = 200;
               res.setHeader('Content-Type', 'application/json');
+              resp._id = product._id;
               res.json(resp);
           }, (err) => next(err))
           .catch((err) => next(err));

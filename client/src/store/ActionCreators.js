@@ -17,11 +17,14 @@ export const postProduct = (name, aisle, description, inCart, marked) => (dispat
       marked: marked
   };
 
-  return fetch(baseUrl + 'create.php', {
+  const bearer = 'Bearer ' + localStorage.getItem('token');
+
+  return fetch('/products', {
       method: "POST",
       body: JSON.stringify(newProduct),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': bearer
       },
       credentials: "same-origin"
   })
@@ -51,7 +54,6 @@ export const updateProduct = (product) => ({
 
 export const postUpdateProduct = (id, name, aisle, description, inCart, marked) => (dispatch) => {
   const updatedProduct = {
-      id: id,
       name: name,
       aisle: aisle,
       description: description,
@@ -59,11 +61,14 @@ export const postUpdateProduct = (id, name, aisle, description, inCart, marked) 
       marked: marked
   };
 
-  return fetch(baseUrl + 'update.php', {
-      method: "POST",
+  const bearer = 'Bearer ' + localStorage.getItem('token');
+
+  return fetch('/products/' + id, {
+      method: "PUT",
       body: JSON.stringify(updatedProduct),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': bearer
       },
       credentials: "same-origin"
   })
@@ -81,17 +86,17 @@ export const postUpdateProduct = (id, name, aisle, description, inCart, marked) 
     })
   .then(response => response.json())
   .then(response => dispatch(updateProduct(response)))
-  .catch(error =>  { console.log('post products', error.message); alert('Your comment could not be posted\nError: '+error.message); });
+  .catch(error =>  { console.log('post products', error.message); alert('Tu producto no pudo actualizarse\nError: '+error.message); });
 };
 
 // export const postUpdateProduct = (id, name, aisle, description, inCart, marked) => (dispatch) => {
 //   const updatedProduct = {
-//       id: id,
+//       _id: id,
 //       name: name,
 //       aisle: aisle,
 //       description: description,
-//       inCart: inCart == true ? '1' : '0',
-//       marked: marked == true ? '1' : '0'
+//       inCart: inCart,
+//       marked: marked
 //   };
 //
 //   dispatch(updateProduct(updatedProduct));
@@ -110,11 +115,14 @@ export const postDeleteProduct = (id) => (dispatch) => {
       id: id
   };
 
-  return fetch(baseUrl + 'delete.php', {
-      method: "POST",
+  const bearer = 'Bearer ' + localStorage.getItem('token');
+
+  return fetch('/products/' + id, {
+      method: "DELETE",
       body: JSON.stringify(objId),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': bearer
       },
       credentials: "same-origin"
   })

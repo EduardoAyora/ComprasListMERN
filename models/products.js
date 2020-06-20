@@ -10,6 +10,18 @@ const productSchema = new Schema({
         type: String,
         required: false
     },
+    aisle: {
+        type: Number,
+        required: false
+    },
+    inCart: {
+        type: Boolean,
+        required: false
+    },
+    marked: {
+        type: Boolean,
+        required: false
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

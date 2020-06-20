@@ -19,7 +19,7 @@ export class CartTableComponent extends React.Component {
       return 0;
     });
     orderedProducts.forEach((product) => {
-      if(product.inCart === "1"){
+      if(product.inCart === true){
         products.push(<CartRowComponent product={product} key={product.id}
           postUpdateProduct={this.props.postUpdateProduct} />);
       }

@@ -10,9 +10,9 @@ export class CartQuitComponent extends React.Component {
   handleClick() {
     const products = this.props.products;
     products.forEach((product) => {
-      if (product.inCart === "1" && product.marked === "1"){
+      if (product.inCart === true && product.marked === true){
         this.props.postUpdateProduct(
-          product.id, product.name, product.aisle, product.description, "0", "0"
+          product._id, product.name, product.aisle, product.description, false, false
         );
       }
     });

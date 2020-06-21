@@ -87,20 +87,10 @@ export const postUpdateProduct = (id, name, aisle, description, inCart, marked) 
   .then(response => response.json())
   .then(response => dispatch(updateProduct(response)))
   .catch(error =>  { console.log('post products', error.message); alert('Tu producto no pudo actualizarse\nError: '+error.message); });
-};
 
-// export const postUpdateProduct = (id, name, aisle, description, inCart, marked) => (dispatch) => {
-//   const updatedProduct = {
-//       _id: id,
-//       name: name,
-//       aisle: aisle,
-//       description: description,
-//       inCart: inCart,
-//       marked: marked
-//   };
-//
-//   dispatch(updateProduct(updatedProduct));
-// };
+  updatedProduct._id = id;
+  dispatch(updateProduct(updatedProduct));
+};
 
 // DELETE ---
 

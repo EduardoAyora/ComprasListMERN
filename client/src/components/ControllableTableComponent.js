@@ -6,7 +6,9 @@ import {CartTableComponent} from './CartTableComponent';
 import {ProductPanelComponent} from './ProductPanelComponent';
 import {Switch, Route} from "react-router-dom";
 import {AlertsComponent} from './AlertsComponent';
+import {LoginComponent} from './LoginComponent';
 import { connect } from 'react-redux';
+import  { Redirect } from 'react-router-dom';
 import {postProduct, fetchProducts, postDeleteProduct, postUpdateProduct, loginUser,
     logoutUser} from '../store/ActionCreators';
 
@@ -48,7 +50,9 @@ class ControllableTableComponent extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchProducts();
+    if (this.props.auth.isAuthenticated) {
+      this.props.fetchProducts();
+    }
   }
 
   handleSearchTextChange(input) {
@@ -99,12 +103,20 @@ class ControllableTableComponent extends React.Component {
 
   render() {
     const products = this.props.products;
+    const redirect = () => {
+      if (!this.props.auth.isAuthenticated) {
+        return <Redirect to="/login" />
+      }
+      else {
+        return <Redirect to="/" />
+      }
+    }
     return (
       <div>
+        {redirect()}
         <Switch>
           <Route exact path="/">
-            <ProductHeaderComponent loginUser={this.props.loginUser} logoutUser={this.props.logoutUser}
-              auth={this.props.auth} />
+            <ProductHeaderComponent logoutUser={this.props.logoutUser} auth={this.props.auth} />
             <ProductPanelComponent searchText={this.state.searchText} onSearchTextChange={this.handleSearchTextChange}
               addAllClick={this.showAllAddedAlert} createdClick={this.showCreatedAlert}
               postProduct={this.props.postProduct} products={products.products}
@@ -119,6 +131,9 @@ class ControllableTableComponent extends React.Component {
             <CartTableComponent products={products.products} goneClick={this.showGoneAlert}
               productsLoading={products.isLoading} productsErrMess={products.errMess}
               postUpdateProduct={this.props.postUpdateProduct} />
+          </Route>
+          <Route path="/login">
+            <LoginComponent loginUser={this.props.loginUser} />
           </Route>
         </Switch>
 

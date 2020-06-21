@@ -1,5 +1,5 @@
 import * as ActionTypes from './ActionTypes';
-import { baseUrl } from '../shared/baseUrl';
+// import { baseUrl } from '../shared/baseUrl';
 
 // ADD ---
 
@@ -61,6 +61,10 @@ export const postUpdateProduct = (id, name, aisle, description, inCart, marked) 
       marked: marked
   };
 
+  let updated = updatedProduct;
+  updated._id = id;
+  dispatch(updateProduct(updated));
+
   const bearer = 'Bearer ' + localStorage.getItem('token');
 
   return fetch('/products/' + id, {
@@ -87,9 +91,6 @@ export const postUpdateProduct = (id, name, aisle, description, inCart, marked) 
   .then(response => response.json())
   .then(response => dispatch(updateProduct(response)))
   .catch(error =>  { console.log('post products', error.message); alert('Tu producto no pudo actualizarse\nError: '+error.message); });
-
-  updatedProduct._id = id;
-  dispatch(updateProduct(updatedProduct));
 };
 
 // DELETE ---

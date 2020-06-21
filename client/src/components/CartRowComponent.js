@@ -1,5 +1,4 @@
 import React from 'react';
-import { Input } from 'reactstrap';
 
 export class CartRowComponent extends React.Component {
 
@@ -22,7 +21,7 @@ export class CartRowComponent extends React.Component {
         <td>
           <form>
             <div className="form-check">
-              <Input type="checkbox" defaultChecked={product.marked}
+              <input type="checkbox" checked={product.marked}
                 onChange={this.handleChange} />&nbsp;
               <label className="form-check-label">{product.name}</label>
             </div>

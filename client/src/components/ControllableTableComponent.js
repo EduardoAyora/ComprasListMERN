@@ -10,7 +10,7 @@ import {LoginComponent} from './LoginComponent';
 import { connect } from 'react-redux';
 import  { Redirect } from 'react-router-dom';
 import {postProduct, fetchProducts, postDeleteProduct, postUpdateProduct, loginUser,
-    logoutUser} from '../store/ActionCreators';
+    logoutUser, signUpUser} from '../store/ActionCreators';
 
 const mapDispatchToProps = dispatch => ({
   postProduct: (name, aisle, description, inCart, marked) => dispatch(postProduct(name, aisle, description, inCart, marked)),
@@ -19,6 +19,7 @@ const mapDispatchToProps = dispatch => ({
   postUpdateProduct: (id, name, aisle, description, inCart, marked) => dispatch(postUpdateProduct(id, name, aisle, description, inCart, marked)),
   loginUser: (creds) => dispatch(loginUser(creds)),
   logoutUser: () => dispatch(logoutUser()),
+  signUpUser: (creds) => dispatch(signUpUser(creds))
 });
 
 const mapStateToProps = state => {
@@ -133,7 +134,7 @@ class ControllableTableComponent extends React.Component {
               postUpdateProduct={this.props.postUpdateProduct} />
           </Route>
           <Route path="/login">
-            <LoginComponent loginUser={this.props.loginUser} />
+            <LoginComponent loginUser={this.props.loginUser} signUpUser={this.props.signUpUser} />
           </Route>
         </Switch>
 

@@ -266,3 +266,53 @@ export const logoutUser = () => (dispatch) => {
     localStorage.removeItem('creds');
     dispatch(receiveLogout())
 }
+
+// ---signUpUser
+export const receiveSignUp = (response) => {
+    return {
+        type: ActionTypes.SIGNUP_SUCCESS,
+        status: response.status
+    }
+}
+
+export const signUpError = (message) => {
+    return {
+        type: ActionTypes.SIGNUP_FAILURE,
+        message
+    }
+}
+
+export const signUpUser = (creds) => (dispatch) => {
+    return fetch('/users/signup', {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(creds)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response;
+        } else {
+            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+        }
+        },
+        error => {
+            throw error;
+        })
+    .then(response => response.json())
+    .then(response => {
+        if (response.success) {
+            // Dispatch the success action
+            dispatch(receiveSignUp(response));
+        }
+        else {
+            var error = new Error('Error ' + response.status);
+            error.response = response;
+            throw error;
+        }
+    })
+    .catch(error => dispatch(signUpError(error.message)))
+};

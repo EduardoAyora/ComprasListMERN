@@ -25,7 +25,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
   return {
     products: state.products,
-    auth: state.auth
+    auth: state.auth,
+    signup: state.signup
   }
 }
 
@@ -134,7 +135,9 @@ class ControllableTableComponent extends React.Component {
               postUpdateProduct={this.props.postUpdateProduct} />
           </Route>
           <Route path="/login">
-            <LoginComponent loginUser={this.props.loginUser} signUpUser={this.props.signUpUser} />
+            <LoginComponent loginUser={this.props.loginUser} signUpUser={this.props.signUpUser}
+              errMess={this.props.auth.errMess} signUpError={this.props.signup.errMess}
+              message={this.props.signup.message} />
           </Route>
         </Switch>
 

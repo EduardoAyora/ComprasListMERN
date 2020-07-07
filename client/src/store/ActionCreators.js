@@ -290,9 +290,17 @@ export const receiveLogout = () => {
 // Logs the user out
 export const logoutUser = () => (dispatch) => {
     dispatch(requestLogout())
+    dispatch(requestLogout())
+    dispatch(signupClear())
     localStorage.removeItem('token');
     localStorage.removeItem('creds');
     dispatch(receiveLogout())
+}
+
+export const signupClear = () => {
+  return {
+    type: ActionTypes.SIGNUP_CLEAR
+  }
 }
 
 // ---signUpUser

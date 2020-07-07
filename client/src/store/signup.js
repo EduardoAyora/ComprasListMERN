@@ -18,6 +18,12 @@ export const SignUp = (state = {
                 message: '',
                 errMess: action.message
             };
+        case ActionTypes.SIGNUP_CLEAR:
+            return {...state,
+                isLoading: false,
+                message: '',
+                errMess: ''
+            };
         default:
             return state
     }

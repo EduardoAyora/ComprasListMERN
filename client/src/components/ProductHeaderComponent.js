@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import {HeaderComponent} from './HeaderComponent';
-import { Nav, NavItem, Button } from 'reactstrap';
+import { Nav, NavItem, Button, NavbarText } from 'reactstrap';
 
 export class ProductHeaderComponent extends React.Component {
 
@@ -22,20 +22,21 @@ export class ProductHeaderComponent extends React.Component {
       }
     }
     return(
-      <HeaderComponent align="mr-auto">
-        <Link to="/carrito" className="green">
-          <KeyboardArrowLeftIcon fontSize="large" />
-          Carrito
-        </Link>
-
-        <Nav className="ml-auto" navbar>
+      <HeaderComponent align="collapse navbar-collapse justify-content-between">
+        <Nav navbar>
             <NavItem>
-                <div className="navbar-text mr-3">{user()}</div>
-                <Button outline onClick={this.handleLogout}>
-                    <span className="fa fa-sign-out fa-lg"></span> Logout
-                </Button>
+                <Link to="/carrito" className="green">
+                  <KeyboardArrowLeftIcon fontSize="large" />
+                  Carrito
+                </Link>
             </NavItem>
         </Nav>
+        <NavbarText>
+            <div className="navbar-text mr-3">{user()}</div>
+            <Button outline onClick={this.handleLogout}>
+                <span className="fa fa-sign-out fa-lg"></span> Logout
+            </Button>
+        </NavbarText>
       </HeaderComponent>
     );
   }

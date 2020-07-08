@@ -22,8 +22,8 @@ export class ProductHeaderComponent extends React.Component {
       }
     }
     return(
-      <HeaderComponent align="collapse navbar-collapse justify-content-between">
-        <Nav navbar>
+      <HeaderComponent align="container">
+        <Nav navbar className="max-nav">
             <NavItem>
                 <Link to="/carrito" className="green">
                   <KeyboardArrowLeftIcon fontSize="large" />

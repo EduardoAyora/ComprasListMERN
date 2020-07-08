@@ -19,12 +19,11 @@
 .register-container {
   height: 730px;
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 .register {
-  margin: auto;
-  width: 50%;
+  max-height: 630px;
 }
 
 .header {

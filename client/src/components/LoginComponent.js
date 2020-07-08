@@ -81,54 +81,56 @@ export class LoginComponent extends React.Component {
       messages.push(<span></span>);
     }
     return(
-      <div className="container">
-        <div className="register-container">
-          <div className="register">
-            {messages}
-            <Form onSubmit={this.handleLogin}>
-                <FormGroup>
-                    <Label htmlFor="username">Nombre de usuario</Label>
-                    <Input type="text" id="username" name="username"
-                        innerRef={(input) => this.username = input}
-                        value={login}
-                        onChange={(event) => this.setState({loginUser: event.target.value})} />
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="password">Contraseña</Label>
-                    <Input type="password" id="password" name="password"
-                        innerRef={(input) => this.password = input}
-                        value={loginPass}
-                        onChange={(event) => this.setState({loginPassword: event.target.value})} />
-                </FormGroup>
-                <Button type="submit" value="submit" color="primary">Ingresar</Button>
-            </Form>
-            <div className="mt-4 mb-4">
-              ¿No tienes una cuenta? Puedes registrarte aquí:
+      <div className="container mt-5">
+        <div className="row justify-content-center register">
+          <div className="col-10 col-lg-6 ">
+            <div className="">
+              {messages}
+              <Form onSubmit={this.handleLogin}>
+                  <FormGroup>
+                      <Label htmlFor="username">Nombre de usuario</Label>
+                      <Input type="text" id="username" name="username"
+                          innerRef={(input) => this.username = input}
+                          value={login}
+                          onChange={(event) => this.setState({loginUser: event.target.value})} />
+                  </FormGroup>
+                  <FormGroup>
+                      <Label htmlFor="password">Contraseña</Label>
+                      <Input type="password" id="password" name="password"
+                          innerRef={(input) => this.password = input}
+                          value={loginPass}
+                          onChange={(event) => this.setState({loginPassword: event.target.value})} />
+                  </FormGroup>
+                  <Button type="submit" value="submit" color="primary">Ingresar</Button>
+              </Form>
+              <div className="mt-4 mb-4">
+                ¿No tienes una cuenta? Puedes registrarte aquí:
+              </div>
+              <Form onSubmit={this.handleSignup}>
+                  <FormGroup>
+                      <Label htmlFor="username2">Nombre de usuario</Label>
+                      <Input type="text" id="username2" name="username2"
+                          innerRef={(input) => this.usern = input}
+                          value={signup}
+                          onChange={(event) => this.setState({signUpUser: event.target.value})}/>
+                  </FormGroup>
+                  <FormGroup>
+                      <Label htmlFor="pass">Contraseña</Label>
+                      <Input type="password" id="pass" name="pass"
+                          innerRef={(input) => this.pass = input}
+                          value={signupPass1}
+                          onChange={(event) => this.setState({signUpPassword1: event.target.value})} />
+                  </FormGroup>
+                  <FormGroup>
+                      <Label htmlFor="pass2">Repite la contraseña</Label>
+                      <Input type="password" id="pass2" name="pass2"
+                          innerRef={(input) => this.pass2 = input}
+                          value={signupPass2}
+                          onChange={(event) => this.setState({signUpPassword2: event.target.value})} />
+                  </FormGroup>
+                  <Button type="submit" value="submit" color="primary">Registrarte</Button>
+              </Form>
             </div>
-            <Form onSubmit={this.handleSignup}>
-                <FormGroup>
-                    <Label htmlFor="username2">Nombre de usuario</Label>
-                    <Input type="text" id="username2" name="username2"
-                        innerRef={(input) => this.usern = input}
-                        value={signup}
-                        onChange={(event) => this.setState({signUpUser: event.target.value})}/>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="pass">Contraseña</Label>
-                    <Input type="password" id="pass" name="pass"
-                        innerRef={(input) => this.pass = input}
-                        value={signupPass1}
-                        onChange={(event) => this.setState({signUpPassword1: event.target.value})} />
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="pass2">Repite la contraseña</Label>
-                    <Input type="password" id="pass2" name="pass2"
-                        innerRef={(input) => this.pass2 = input}
-                        value={signupPass2}
-                        onChange={(event) => this.setState({signUpPassword2: event.target.value})} />
-                </FormGroup>
-                <Button type="submit" value="submit" color="primary">Registrarte</Button>
-            </Form>
           </div>
         </div>
       </div>

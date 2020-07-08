@@ -81,7 +81,7 @@ export class LoginComponent extends React.Component {
       messages.push(<span></span>);
     }
     return(
-      <div className="container mt-5">
+      <div className="container mt-5 mb-5">
         <div className="row justify-content-center register">
           <div className="col-10 col-lg-6 ">
             <div className="">

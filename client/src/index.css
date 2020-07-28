@@ -21,11 +21,12 @@ code {
 }
 
 #login-col {
-  padding: 40px 80px;
+  padding: 40px;
   background-color: #6FD084;
   border-radius: 5px;
   border: 2px dashed;
   border-color: #026F1A;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 #register {
@@ -34,4 +35,50 @@ code {
   border-radius: 5px;
   border: 2px dashed;
   border-color: #026F1A;
+}
+
+#product-panel-component {
+  margin-top: 5vh;
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: #45B85F;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.table-component {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  border: 2px dashed;
+  border-radius: 5px;
+  border-color: #45B85F;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+}
+
+.table-component tr,
+.table-component td,
+.table-component thead th
+{
+  border-top: none;
+  border-bottom: 1px dotted;
+  border-color: green;
+}
+
+.table-component thead th {
+  border-bottom: 1px solid;
+}
+
+.product-component {
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+#navbar {
+  background-image: linear-gradient(to right, #f8f9fa, #6FD084) !important;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }

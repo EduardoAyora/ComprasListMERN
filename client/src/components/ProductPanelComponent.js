@@ -7,7 +7,7 @@ export class ProductPanelComponent extends React.Component {
 
   render() {
     return(
-      <div className="container">
+      <div className="container" id="product-panel-component">
         <div className="row mt-4 mb-4">
           <div className="col">
             <ProductSearchComponent searchText={this.props.searchText} onSearchTextChange={this.props.onSearchTextChange} />

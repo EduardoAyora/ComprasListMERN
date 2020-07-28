@@ -44,7 +44,7 @@ export class CartTableComponent extends React.Component {
     }
     else if (this.props.products != null){
       return(
-        <div className="container">
+        <div className="container table-component">
           <div className="row">
             <div className="col">
               <table className="table">

@@ -47,7 +47,7 @@ class ProductTableComponent extends React.Component {
     }
     else if (this.props.products != null){
       return (
-        <div className="container">
+        <div className="container table-component product-component">
           <table className="table">
             <tbody>
               {products}

@@ -81,9 +81,10 @@ export class LoginComponent extends React.Component {
       messages.push(<span></span>);
     }
     return(
-      <div className="container mt-5 mb-5">
-        <div className="row justify-content-center register">
-          <div className="col-10 col-lg-6 ">
+      <div className="container">
+        <div className="row justify-content-center register align-items-center"
+          id="login-container" >
+          <div className="col-10 col-lg-6" id="login-col">
             <div className="">
               {messages}
               <Form onSubmit={this.handleLogin}>
@@ -104,9 +105,9 @@ export class LoginComponent extends React.Component {
                   <Button type="submit" value="submit" color="primary">Ingresar</Button>
               </Form>
               <div className="mt-4 mb-4">
-                ¿No tienes una cuenta? Puedes registrarte aquí:
+                <span className="lead text-light font-weight-bold">¿No tienes una cuenta? Puedes registrarte aquí:</span>
               </div>
-              <Form onSubmit={this.handleSignup}>
+              <Form onSubmit={this.handleSignup} id="register">
                   <FormGroup>
                       <Label htmlFor="username2">Nombre de usuario</Label>
                       <Input type="text" id="username2" name="username2"
